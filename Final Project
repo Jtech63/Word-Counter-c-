@@ -1,0 +1,42 @@
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void countButton_Click(object sender, EventArgs e)
+        {
+            string ch, temp, str; //varis
+            int len, Count, i;    // conts
+            str = textString.Text;
+            len = str.Length;
+            Count = 0;
+
+            temp = string.Empty;
+
+            for (i = 0; i < len; i++)  //start of loop
+            {
+                ch = str.Substring(i, 1);  // if word starts with a space dont count as word
+                if (ch != " ")
+                {
+                    temp = temp + ch;
+                }
+
+                if (ch == " " || i == len - 1)
+                {
+                    if (temp.Length > 0)  // if word doesnt start with a space count word
+                    {
+                        Count = Count + 1;
+                        temp = "";
+                    }
+                }
+            }
+
+            countLabel.Text = countLabel.Text = ("Number of Words: " + Count.ToString()); //output
+
+
+        }
+    }
+}
